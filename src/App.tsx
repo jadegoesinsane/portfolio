@@ -1,37 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import Navbar from './components/Navbar.tsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Hello world</h1>
-          <p>
-            Nice to meet you
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <section id="about" className="relative min-h-screen flex items-center justify-center px-4 mt-16 pt-6 pb-8">
+        <h2>About</h2>
       </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="skills" className="relative flex items-center justify-center mt-16 px-4 pt-6 pb-8">
+        <h2>Skills</h2>
+      </section>
     </>
   )
 }
